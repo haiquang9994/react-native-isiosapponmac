@@ -1,18 +1,12 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from '@lpks/react-native-isiosapponmac';
+import isiOSAppOnMac from '@lpks/react-native-isiosapponmac';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>{isiOSAppOnMac() ? 'Yes' : 'No'}</Text>
     </View>
   );
 }

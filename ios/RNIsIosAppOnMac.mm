@@ -1,27 +1,22 @@
 #import "RNIsIosAppOnMac.h"
 
 @implementation RNIsIosAppOnMac
-RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(double)a withB:(double)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_MODULE();
+
+- (NSDictionary *)constantsToExport
 {
-    NSNumber *result = @(a * b);
-
-    resolve(result);
+  if (@available(iOS 14.0, *)) {
+      if ([NSProcessInfo processInfo].isiOSAppOnMac) {
+        return @{ @"IsiOSAppOnMac": @(true) };
+      }
+  }
+  return @{ @"IsiOSAppOnMac": @(false) };
 }
 
-// Don't compile this code when we build for the old architecture.
-#ifdef RCT_NEW_ARCH_ENABLED
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-    (const facebook::react::ObjCTurboModule::InitParams &)params
++ (BOOL)requiresMainQueueSetup
 {
-    return std::make_shared<facebook::react::NativeRNIsIosAppOnMacSpecJSI>(params);
+    return NO;
 }
-#endif
 
 @end
