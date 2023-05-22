@@ -11,16 +11,12 @@ npm install @lpks/react-native-isiosapponmac
 ## Usage
 
 ```js
-import { multiply } from '@lpks/react-native-isiosapponmac';
+import isiOSAppOnMac from '@lpks/react-native-isiosapponmac';
 
-// ...
+const result = isiOSAppOnMac() ? "iOS app running on Mac" : "iOS app not running on Mac";
 
-const result = await multiply(3, 7);
+console.log(result);
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
 
