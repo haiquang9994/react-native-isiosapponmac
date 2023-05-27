@@ -5,7 +5,7 @@ React Native IsIosAppOnMac
 ## Installation
 
 ```sh
-npm install @lpks/react-native-isiosapponmac
+npm install @lpks/react-native-isiosapponmac --save
 ```
 
 ## Usage
@@ -21,7 +21,3 @@ console.log(result);
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
